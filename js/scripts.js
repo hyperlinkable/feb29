@@ -1,16 +1,28 @@
 // function to remove spaces
-var cleanString = function(string) {
+var removeSpaces = function(string) {
   return string.split(' ').join('');
 };
 
+// function to check for non alpha characters
+// FIX THIS PART!!!
+var hasNonAlpha = function(string) {
+  var regex = /\W/;
+  console.log(removeSpaces(string.search(regex)));
+  if (removeSpaces(string.search(regex)) >= 1) {
+  return true;
+  } else
+  return false;
+};
+
+
 // function to prepare original string for compare
 var prep = function(string) {
-  return cleanString(string);
+  return removeSpaces(string);
 };
 
 // function to prepare flipped string
 var flip = function(string) {
-  return cleanString(string).replace(' ','').split('').reverse().join('');
+  return prep(string).replace(' ','').split('').reverse().join('');
 };
 
 // function isPal to evaluate word (without spaces) vs. flipped word
